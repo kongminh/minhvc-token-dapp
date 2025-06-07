@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "contract"
+  ],
+  "devDependencies": {
+    "hardhat": "^2.24.2"
+  }
+}

@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  backend:
+    build: ../backend
+    ports:
+      - "5000:5000"
+    environment:
+      - RPC_URL=http://hardhat:8545
+      - CONTRACT_ADDRESS=0xYourContractAddress
+
+  frontend:
+    build: ../frontend
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_CONTRACT_ADDRESS=0xYourContractAddress
+
+  hardhat:
+    image: node:18
+    working_dir: /app
+    volumes:
+      - ./hardhat:/app
+    command: npx hardhat node
+    ports:
+      - "8545:8545"
